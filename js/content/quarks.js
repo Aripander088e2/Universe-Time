@@ -7,7 +7,7 @@ const QUARKS = {
         if (hasUpg("st",10)) x = x.mul(tmp.upgs_eff.st[10])
         if (hasUpg("at",0)) x = x.mul(tmp.upgs_eff.at[0])
 
-        if (hasUpg("ft",7)) x = x.pow(1.025)
+        if (hasUpg("ft",7)) x = x.pow(1.25)
         return x
     },
     getFT() {
@@ -17,11 +17,11 @@ const QUARKS = {
     },
     calcRewards() {
         if (player.quarks.lt(10)) return E(0)
-        let x = player.quarks.div(10).max(1).log2().max(0).root(1.25).mul(tmp.quarks.ft).add(1)
+        let x = player.quarks.div(10).max(1).log2().max(0).root(1.15).mul(tmp.quarks.ft).add(1)
         return x.floor()
     },
     nextReward() {
-        let x = E(2).pow(player.rewards.div(tmp.quarks.ft).pow(1.25)).mul(10)
+        let x = E(2).pow(player.rewards.div(tmp.quarks.ft).pow(1.15)).mul(10)
         return x
     },
     effects(i) {
