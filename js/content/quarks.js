@@ -17,11 +17,11 @@ const QUARKS = {
     },
     calcRewards() {
         if (player.quarks.lt(8)) return E(0)
-        let x = player.quarks.div(8).max(1).log2().max(0).root(1.1).mul(tmp.quarks.ft).add(1)
+        let x = player.quarks.div(8).max(1).log2().max(0).root(1.03).mul(tmp.quarks.ft).add(1)
         return x.floor()
     },
     nextReward() {
-        let x = E(2).pow(player.rewards.div(tmp.quarks.ft).pow(1.1)).mul(8)
+        let x = E(2).pow(player.rewards.div(tmp.quarks.ft).pow(1.03)).mul(8)
         return x
     },
     effects(i) {
